@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bd0186c-c8c6-43ca-bff7-956511d8a64c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-project.cabal" beforeDir="false" afterPath="$PROJECT_DIR$/my-project.cabal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/package.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/models" beforeDir="false" afterPath="$PROJECT_DIR$/config/models" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Foundation.hs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Foundation.hs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stack.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/stack.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model.hs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model.hs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +17,26 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Foundation.hs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="283" column="40" selection-start-line="283" selection-start-column="40" selection-end-line="283" selection-end-column="40" />
+            <state relative-caret-position="150">
+              <caret line="307" column="42" selection-start-line="307" selection-start-column="42" selection-end-line="307" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model.hs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="223">
+              <caret line="62" column="2" selection-start-line="62" selection-start-column="2" selection-end-line="62" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/models">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -59,6 +75,7 @@
       <find>import Yesod.Auth</find>
       <find>base</find>
       <find>instance YesodAuth App where</find>
+      <find>hasPrivileges</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -70,11 +87,13 @@
         <option value="$PROJECT_DIR$/package.yaml" />
         <option value="$PROJECT_DIR$/stack.yaml" />
         <option value="$PROJECT_DIR$/my-project.cabal" />
+        <option value="$PROJECT_DIR$/src/Model.hs" />
+        <option value="$PROJECT_DIR$/config/models" />
         <option value="$PROJECT_DIR$/src/Foundation.hs" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="4">
     <option name="x" value="67" />
     <option name="y" value="27" />
     <option name="width" value="650" />
@@ -92,6 +111,11 @@
             <path>
               <item name="PFIS-Authorization" type="b2602c69:ProjectViewProjectNode" />
               <item name="PFIS-Authorization" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PFIS-Authorization" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PFIS-Authorization" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PFIS-Authorization" type="b2602c69:ProjectViewProjectNode" />
@@ -149,18 +173,18 @@
       <updated>1555548284823</updated>
       <workItem from="1555548286249" duration="2627000" />
       <workItem from="1556754920455" duration="3346000" />
-      <workItem from="1556852892031" duration="453000" />
+      <workItem from="1556852892031" duration="1796000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6426000" />
+    <option name="totallyTimeSpent" value="7769000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="27" width="1299" height="741" extended-state="6" />
+    <frame x="67" y="27" width="650" height="741" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.159109" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32894737" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -177,7 +201,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32952693" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32789558" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -223,10 +247,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/models">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model.hs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="62" column="2" selection-start-line="62" selection-start-column="2" selection-end-line="62" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Foundation.hs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="283" column="40" selection-start-line="283" selection-start-column="40" selection-end-line="283" selection-end-column="40" />
+        <state relative-caret-position="150">
+          <caret line="307" column="42" selection-start-line="307" selection-start-column="42" selection-end-line="307" selection-end-column="42" />
         </state>
       </provider>
     </entry>

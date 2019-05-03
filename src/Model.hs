@@ -58,3 +58,10 @@ instance FromJSON Mazo where
             <$> mazo .: "nombremazo"
             <*> mazo .: "cantidad"
         parseJSON _ = mzero
+
+data Privileges =
+  PrvDemoOne         -- ^ what can be demo one...
+  | PrvDemoTwo       -- ^ what can be demo two...
+  deriving (Show,Read,Eq)
+
+derivePersistField "Privileges"

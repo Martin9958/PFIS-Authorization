@@ -176,19 +176,19 @@ instance Yesod App where
     isAuthorized FaviconR _ = return Authorized
     isAuthorized RobotsR _ = return Authorized
     isAuthorized (StaticR _) _ = return Authorized
-    isAuthorized MazoNewR _ = return Authorized
+    isAuthorized MazoNewR _ = authorizedForPrivileges [PrvDemoOne]
     isAuthorized MazoListR _ = return Authorized
-    isAuthorized (MazoDeleteR _) _ = return Authorized
-    isAuthorized CartaNewR _ = return Authorized
+    isAuthorized (MazoDeleteR _) _ = authorizedForPrivileges [PrvDemoOne]
+    isAuthorized CartaNewR _ = authorizedForPrivileges [PrvDemoOne]
     isAuthorized CartaListR _ = return Authorized
-    isAuthorized (CartaDeleteR _) _ = return Authorized
-    isAuthorized (CartaEditR _) _ = return Authorized
+    isAuthorized (CartaDeleteR _) _ = authorizedForPrivileges [PrvDemoOne]
+    isAuthorized (CartaEditR _) _ = authorizedForPrivileges [PrvDemoOne]
     isAuthorized CartaSearchR _ = return Authorized
-    isAuthorized CartasJsonR _ = return Authorized
-    isAuthorized (CartaJsonR _) _ = return Authorized
-    isAuthorized MazosJsonR _ = return Authorized
-    isAuthorized (MazoJsonR _) _ = return Authorized
-    isAuthorized (MazoEditR _) _ = return Authorized
+    isAuthorized CartasJsonR _ = authorizedForPrivileges [PrvDemoOne]
+    isAuthorized (CartaJsonR _) _ = authorizedForPrivileges [PrvDemoOne]
+    isAuthorized MazosJsonR _ = authorizedForPrivileges [PrvDemoOne]
+    isAuthorized (MazoJsonR _) _ = authorizedForPrivileges [PrvDemoOne]
+    isAuthorized (MazoEditR _) _ = authorizedForPrivileges [PrvDemoOne]
     isAuthorized MazoSearchR _ = return Authorized
 
 
@@ -282,6 +282,7 @@ instance YesodAuth App where
             Nothing -> Authenticated <$> insert User
                 { userIdent = credsIdent creds
                 , userPassword = Nothing
+                , userPerms = [] --New required line
                 }
 
     -- You can add other plugins like Google Email, email or OAuth here
@@ -292,6 +293,19 @@ instance YesodAuth App where
 
     -- loginHandler = do
     --     lift $ defaultLayout $(widgetFile "auth")
+
+authorizedForPrivileges :: [Privileges] -> Handler AuthResult
+authorizedForPrivileges perms = do
+    mu <- maybeAuth
+    return $ case mu of
+     Nothing -> Unauthorized "You must login to access this page"
+     Just u@(Entity userId user) ->
+       if hasPrivileges u perms
+            then Authorized
+            else Unauthorized "Not enought priviledges"
+
+hasPrivileges :: Entity User -> [Privileges] -> Bool
+hasPrivileges (Entity _ user) perms = True
 
 -- | Access function to determine if a user is logged in.
 isAuthenticated :: Handler AuthResult
