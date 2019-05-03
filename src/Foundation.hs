@@ -15,17 +15,18 @@ import Database.Persist.Sql (ConnectionPool, runSqlPool)
 import Text.Hamlet          (hamletFile)
 import Text.Jasmine         (minifym)
 import Control.Monad.Logger (LogSource)
-import Yesod.Auth
-import Yesod.Auth.OAuth2.Google
 
 -- Used only when in "auth-dummy-login" setting is enabled.
 import Yesod.Auth.Dummy
+
 import Yesod.Auth.OpenId    (authOpenId, IdentifierType (Claimed))
 import Yesod.Default.Util   (addStaticContentExternal)
 import Yesod.Core.Types     (Logger)
+import qualified Data.List as L
 import qualified Yesod.Core.Unsafe as Unsafe
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Text.Encoding as TE
+import Yesod.Auth.OAuth2.Google
 
 -- | The foundation datatype for your application. This can be a good place to
 -- keep settings and values requiring initialization before your application
@@ -48,6 +49,14 @@ data MenuItem = MenuItem
 data MenuTypes
     = NavbarLeft MenuItem
     | NavbarRight MenuItem
+
+-- Replace with Google client ID.
+clientId :: Text
+clientId = "868356753926-tidbt156qjfkjrqhlimq8k67oi2atvms.apps.googleusercontent.com"
+
+-- Replace with Google secret ID.
+clientSecret :: Text
+clientSecret = "3MqKxQJ9WIIEH31Qq5v9lMW9"
 
 -- This is where we define all of the routes in our application. For a full
 -- explanation of the syntax, please see:
@@ -279,14 +288,11 @@ instance YesodAuth App where
     authPlugins :: App -> [AuthPlugin App]
     authPlugins app = [oauth2GoogleScoped ["email", "profile"] clientId clientSecret]
 
+    -- authHttpManager = getHttpManager
 
--- Replace with Google client ID.
-clientId :: Text
-clientId = "868356753926-tidbt156qjfkjrqhlimq8k67oi2atvms.apps.googleusercontent.com"
+    -- loginHandler = do
+    --     lift $ defaultLayout $(widgetFile "auth")
 
--- Replace with Google secret ID.
-clientSecret :: Text
-clientSecret = "3MqKxQJ9WIIEH31Qq5v9lMW9"
 -- | Access function to determine if a user is logged in.
 isAuthenticated :: Handler AuthResult
 isAuthenticated = do
