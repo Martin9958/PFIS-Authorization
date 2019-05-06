@@ -63,6 +63,7 @@ data Privileges =
   PrvCreate       -- ^ what can be demo one...
   | PrvSearch     -- ^ what can be demo two...
   | PrvJson
+  | PrvList
   deriving (Show,Read,Eq)
 
 derivePersistField "Privileges"

@@ -177,10 +177,10 @@ instance Yesod App where
     isAuthorized RobotsR _ = return Authorized
     isAuthorized (StaticR _) _ = return Authorized
     isAuthorized MazoNewR _ = authorizedForPrivileges [PrvCreate]
-    isAuthorized MazoListR _ = return Authorized
+    isAuthorized MazoListR _ = authorizedForPrivileges [PrvList]
     isAuthorized (MazoDeleteR _) _ = authorizedForPrivileges [PrvCreate]
     isAuthorized CartaNewR _ = authorizedForPrivileges [PrvCreate]
-    isAuthorized CartaListR _ = return Authorized
+    isAuthorized CartaListR _ = authorizedForPrivileges [PrvList]
     isAuthorized (CartaDeleteR _) _ = authorizedForPrivileges [PrvCreate]
     isAuthorized (CartaEditR _) _ = authorizedForPrivileges [PrvCreate]
     isAuthorized CartaSearchR _ = authorizedForPrivileges [PrvSearch]
@@ -282,7 +282,7 @@ instance YesodAuth App where
             Nothing -> Authenticated <$> insert User
                 { userIdent = credsIdent creds
                 , userPassword = Nothing
-                , userPerms = [] --New required line
+                , userPerms = [PrvList] --New required line
                 }
 
     -- You can add other plugins like Google Email, email or OAuth here
