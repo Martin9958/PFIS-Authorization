@@ -176,20 +176,20 @@ instance Yesod App where
     isAuthorized FaviconR _ = return Authorized
     isAuthorized RobotsR _ = return Authorized
     isAuthorized (StaticR _) _ = return Authorized
-    isAuthorized MazoNewR _ = authorizedForPrivileges [PrvDemoOne]
+    isAuthorized MazoNewR _ = authorizedForPrivileges [PrvCreate]
     isAuthorized MazoListR _ = return Authorized
-    isAuthorized (MazoDeleteR _) _ = authorizedForPrivileges [PrvDemoOne]
-    isAuthorized CartaNewR _ = authorizedForPrivileges [PrvDemoOne]
+    isAuthorized (MazoDeleteR _) _ = authorizedForPrivileges [PrvCreate]
+    isAuthorized CartaNewR _ = authorizedForPrivileges [PrvCreate]
     isAuthorized CartaListR _ = return Authorized
-    isAuthorized (CartaDeleteR _) _ = authorizedForPrivileges [PrvDemoOne]
-    isAuthorized (CartaEditR _) _ = authorizedForPrivileges [PrvDemoOne]
-    isAuthorized CartaSearchR _ = return Authorized
-    isAuthorized CartasJsonR _ = authorizedForPrivileges [PrvDemoOne]
-    isAuthorized (CartaJsonR _) _ = authorizedForPrivileges [PrvDemoOne]
-    isAuthorized MazosJsonR _ = authorizedForPrivileges [PrvDemoOne]
-    isAuthorized (MazoJsonR _) _ = authorizedForPrivileges [PrvDemoOne]
-    isAuthorized (MazoEditR _) _ = authorizedForPrivileges [PrvDemoOne]
-    isAuthorized MazoSearchR _ = return Authorized
+    isAuthorized (CartaDeleteR _) _ = authorizedForPrivileges [PrvCreate]
+    isAuthorized (CartaEditR _) _ = authorizedForPrivileges [PrvCreate]
+    isAuthorized CartaSearchR _ = authorizedForPrivileges [PrvSearch]
+    isAuthorized CartasJsonR _ = authorizedForPrivileges [PrvJson]
+    isAuthorized (CartaJsonR _) _ = authorizedForPrivileges [PrvJson]
+    isAuthorized MazosJsonR _ = authorizedForPrivileges [PrvJson]
+    isAuthorized (MazoJsonR _) _ = authorizedForPrivileges [PrvJson]
+    isAuthorized (MazoEditR _) _ = authorizedForPrivileges [PrvCreate]
+    isAuthorized MazoSearchR _ = authorizedForPrivileges [PrvSearch]
 
 
 
