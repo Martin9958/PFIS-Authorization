@@ -22,6 +22,15 @@ GRANT ALL PRIVILEGES ON DATABASE rootyugi TO rootyugi;
 GRANT ALL PRIVILEGES ON DATABASE rootyugi_test TO rootyugi;
 ```
 
+## User management
+
+Para hacer  aun usuario administrador es necesario ejecutar el comando:
+
+```
+UPDATE public."user" SET perms = '["PrvSearch","PrvCreate","PrvJson"]'
+WHERE id = {userID};
+```
+
 ## Haskell Setup
 
 1. If you haven't already, [install Stack](https://haskell-lang.org/get-started)
