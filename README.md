@@ -27,7 +27,7 @@ GRANT ALL PRIVILEGES ON DATABASE rootyugi_test TO rootyugi;
 Para hacer  aun usuario administrador es necesario ejecutar el comando:
 
 ```
-UPDATE public."user" SET perms = '["PrvSearch","PrvCreate","PrvJson"]'
+UPDATE public."user" SET perms = '["PrvSearch","PrvCreate","PrvJson","PrvList"]'
 WHERE id = {userID};
 ```
 
